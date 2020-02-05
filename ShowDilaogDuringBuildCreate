@@ -1,0 +1,40 @@
+Future.delayed(Duration.zero, () => _showDialog())
+
+We have to display the dialog once done with building the widget. You can use Future.delayed function like below(I tested, it is working).
+
+class XxxxxWidget extends StatelessWidget {
+
+@override
+Widget build(BuildContext context) {
+// [NG]We want to show dialog on Container widget.
+
+ Future.delayed(Duration.zero, () => showMyDialog(context)); // import 'dart:async';
+ return Container(
+  child: FlatButton(.... //same as question
+
+Explaination:
+
+As Dart is based on single-threaded event loop, when we create an async tasks, it will put those events in the end of the event queue and continue it's current execution. Please refer below example for more details,
+
+void main() {
+  print("first");
+  Future(() => print("second"));
+  print("third");
+  Future(() => print("forth"));
+
+}
+
+Output will be
+
+first
+third
+second
+forth
+
+It is very similar to
+
+DispatchQueue.main.async {
+ print("Async1") //printJob
+}
+
+Once done with building the widget display the dialog
