@@ -1,0 +1,21 @@
+part of debit_acc_list;
+
+class _Step1ViewState {
+  _Step1ViewState({
+    this.test,
+  });
+
+  final String? test;
+
+  _Step1ViewState copyWith({
+    final String? test,
+  }) {
+    if (test == null || identical(test, this.test)) {
+      return this;
+    }
+
+    return _Step1ViewState(
+      test: test ?? this.test,
+    );
+  }
+}
