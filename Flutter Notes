@@ -1,0 +1,15 @@
+Element Tree :
+
+After being built, the widgets are held by the element tree, which retains the logical structure of the user interface. The element tree is necessary because the widgets themselves are immutable, which means (among other things), they cannot remember their parent or child relationships with other widgets. The element tree also holds the state objects associated with stateful widgets.
+
+What are GlobalKeys?
+
+In Flutter, `GlobalKey` is a class that provides a key that's unique across the entire app. It can be used to identify and interact with a widget from anywhere in the widget tree. `GlobalKey` is commonly used with widgets like `Form`, `ListView`, or `FormField` to uniquely identify and manipulate them.
+
+For example, when working with forms, you might use a `GlobalKey<FormState>` to interact with the state of a form from outside its own widget tree. This allows you to trigger validation or other actions on the form.
+
+Global Access V/s Scoped Access
+
+https://codewithandrea.com/articles/global-access-vs-scoped-access/
+
+Note: To understand exactly why we need Inherited widget and Provider 
